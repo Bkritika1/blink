@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+/* change headersection */
+.secondary{
+    nav {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px;
+            color: black;
+        }
+        nav ul li {
+            color: black;
+        }
+        nav button {
+            background-color: #007BFF;
+            color: black;
+            padding: 10px 14px;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+            background-color: white;
+            border: 1px solid black;
+        }
+}
+
+        header {
+            padding: 0px 2%; 
+            display: flex;
+            justify-content: space-between; 
+            z-index: 10; 
+            position: absolute;
+            top: 0px;
+        }
+
+        .logo {
+            width: 15vw;
+            padding: 8px;
+            background-color: white;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        .logo img {
+            width: 13vw;
+        }
+
+        .nav-div {
+            display: flex;
+            justify-content: flex-end; 
+            align-items: center; 
+            width: 100%;
+            position: relative;
+            right: -494px
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            background-color: rgba(128, 128, 128, 0.5);
+            padding: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            margin-right: 20px;
+        }
+
+        nav ul li {
+            padding: 0 17px;
+            display: flex;
+            align-items: center; 
+            color: whitesmoke;
+            font-size: 14px;
+        }
+
+        nav button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 14px;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+            background-color: rgb(128 128 128 / 0%);
+            border: 1px solid white;
+        }
+
+        nav button:hover {
+            background-color: #0056b3;
+        }
+
+        .hero {
+            background-image: url(/images/backgroundimage.webp) ;
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-repeat: no-repeat;
+            
+        }
+
+        main {
+            /* padding: 20px; */
+            text-align: center;
+            margin-top: 120px; 
+        }
+        form {
+            display: flex;
+            padding: 25px;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(0 0 0 / 32%);
+            gap: 30px;
+            color: white;
+        }
+
+        form input {
+            padding: 14px;
+            width: 13vw;
+        }
+
+        .btn {
+            padding: 10px;
+            background-color: #CA005D;
+        }
+
+        .heading h1 {
+            font-size: 40px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-shadow: 0 0.04em 0.5em rgba(0, 0, 0, 0.9);
+        }
+
+        .stickynav {
+            width: 100%;
+            height: 7vh;
+            position: sticky;
+            top: 0;
+            border: 1px solid grey;
+            background-color: #6d535f;
+            display: flex;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+            z-index: 9999999;
+        }
+
+        .stickynav  a {
+            width: 30vh;
+            height: 100%;
+            border-left: 1px solid #524a47;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: grey;
+        }
+
+        .stickynav a:hover {
+            cursor: pointer;
+            background-color: #524a47;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .mobile-nav {
+            display: none;
+        }
+        .paragraph{
+            font-size: 1.1em;
+            width: 68%;
+        }
+      
+        .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      z-index: 99999;
+      position: absolute;
+     
+    }
+
+    .hamburger div {
+      width: 30px;
+      height: 4px;
+      background-color: grey;
+      border-radius: 5px;
+    }
+
+    .personimg {
+    width: 60px; 
+    height: 60px;
+    border-radius: 50%; 
+    overflow: hidden; 
+}
+
+.personimg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.section2{
+    display: flex;
+    align-items: center; 
+    flex-wrap: wrap;
+}
+.review-content{
+    display: flex;
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+.review-content p {
+    font-size: 1; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #333; 
+    word-wrap: break-word;
+    width: 23vw;
+}
+#dyanamicsection-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 30px;
+    padding: 20px;
+    margin-top: 10vh;
+}
+
+.monatiseimg{
+    width: 60%;
+    background-image: url(https://www.homestay.com/assets/promotions/orange_bed-96c5597c1f1b641729a5523b543fbf44b6508237ef81816347f5b10dc95c4485.jpg);
+    background-size: cover;
+    background-position: 0% 78%;
+    height: 250px; 
+    /* background-position: center center; */
+}
+.mainmonatise{
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    /* background-color: grey; */
+    padding: 60px;
+    width: 100%;
+    background-color: #F1EFEF
+}
+.mainn{
+    display: flex;
+    width: 100%;
+}
+.mainnn{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    background-color: white;
+    display: flex;
+    gap: 20px;
+}
+.mainnn button{
+    width: 20vw;
+    background-color: blue;
+    color: white;
+    padding: 20px;
+    border: none;
+}
+.mainnn p{
+    width: 22vw;
+}
+.valuecontain img{
+    width: 5vw;
+}
+.containvalue{
+    display: flex;
+}
+#dyanamicsection-4{
+    display: flex;
+    padding: 5rem;
+}
+.con{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.containvalue{
+    display: flex;
+    flex-direction: column;
+}
+.conn img{
+    width: 70%;
+}
+.cart-items-container{
+    display: flex;
+}
+#dyanamicsection-5{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.videoh{
+    width: 100%;
+}
+.section1{
+    display: flex
+;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#dyanamicsection-5 p{
+    width: 80%;
+}
+.homestay-cards-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 45px; 
+    justify-content: center;
+}
+
+.homestay-card {
+    width: 400px;
+    /* border: 1px solid #ccc; */
+    border-radius: 8px;
+    /* padding: 15px; */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+.homestay-image {
+    position: relative;
+    overflow: hidden;
+}
+.homestay-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.homestay-details h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+
+.homestay-card:hover .homestay-image img {
+    transform: scale(1.1); 
+}
+
+
+.homestay-details {
+    position: absolute;
+    bottom: -100%; 
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: white;
+    text-align: center;
+    border-radius: 0 0 8px 8px;
+    transition: bottom 0.3s ease-in-out;
+}
+
+.homestay-card:hover .homestay-details {
+    bottom: 0; 
+}
+
+
+#homestayContainer{
+    margin-top: 20vh;
+}
+.homestay-details h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.homestay-details .location,
+.homestay-details .price {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.homestay-details .price {
+    padding: 10px 20px;
+    background-color: blue;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+.input-container {
+            position: relative;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px 35px 10px 10px; /* Adding padding to the right for the dropdown icon */
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="text"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-height: 150px;
+            overflow-y: auto;
+            display: none;
+            z-index: 10;
+        }
+
+        .dropdown option {
+            padding: 10px;
+            cursor: pointer;
+            background-color: white;
+            border: none;
+            width: 100%;
+            text-align: left;
+            color: black;
+        }
+
+        .dropdown option:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Dropdown icon */
+        .dropdown-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: #007bff;
+            cursor: pointer;
+        }
+
+
+        .homestay-item {
+  display: flex;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.homestay-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+/* .homestay-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.homestay-details h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.homestay-details .address {
+  font-size: 1rem;
+  color: #777;
+}
+
+.homestay-details .reviews, .homestay-details .distance {
+  font-size: 1rem;
+}
+
+.homestay-details .price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #28a745;
+}
+
+.review-score {
+  width: 50px;
+  height: 20px;
+  object-fit: contain;
+} */
+.Carts{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.conttnt{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+
+}
+/* /* #cont{
+    display: flex;
+    width: 100%;
+}
+#mapp{
+    width: 50%;
+} */
+.cartes{
+    display: flex;
+    gap: 20px;
+    border: 1px solid #80808070;;
+    /* color: black; */
+    padding: 20px;
+    /* width: 50%; */
+    border-radius: 6px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.cart-items{
+    width: 30%;
+    background-size: cover;
+    
+    background-repeat: no-repeat;
+}
+.cart-items img{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+#cont{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.ccnt{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+
+
+
+@media (max-width: 500px) {
+    .nav-div {
+        display: none; 
+    }
+
+    .mobile-nav {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(128, 128, 128, 0.7);
+        padding: 10px;
+    }
+
+    .mobile-nav.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+        /* flex-direction: column; */
+        gap: 5px;
+        cursor: pointer;
+        position: absolute;
+        background-color: grey;
+        top: 10px;
+        right: 2%;
+        color: white;
+        z-index: 100; 
+    }
+
+    .hamburger div {
+        width: 30px;
+        height: 4px;
+        background-color: white;
+        border-radius: 5px;
+    }
+    .stickynav{
+        display: none;
+    }
+    .heading h1 {
+        font-size: 1.5rem;
+        line-height: 1;
+        /* word-wrap: break-word; */
+        font-family: inherit;
+        font-weight: 300;
+        text-align: center
+    }
+    form{
+        flex-direction: column;
+        gap: 20px;
+        background-color: rgb(0 0 0 / 0%);
+    }
+    .checkin{
+        display: flex;
+        gap: 20px;
+    }
+    .checkin input {
+        width: 134px;
+    }
+
+    header{
+    width: 100%;
+    background-color: white;
+    }
+    #inputsmob{
+        width: 290px;
+    }
+    .section1 p{
+        display: none;
+    }
+    .hero {
+        background-size: 194% 60%;
+        background-position: top center; 
+        height: 100vh;  
+           
+    }
+    .innerhero{
+        margin-top: -71%;
+        background: rgba(0, 0, 0, 0.3);
+    }
+    main{
+        margin-top: -322px;
+    }
+    .logo img {
+    width: 22vw;
+}
+#dyanamicsection-2{
+    flex-direction: column;
+}
+.review-content p {
+    width: 67vw;
+}
+.mainn{
+    flex-direction: column-reverse;
+}
+.mainnn{
+    width:111%;
+    padding: 30px;
+}
+.monatiseimg {
+    width: 300px;
+}
+.mainnn p {
+    width: 300px;
+}
+.mainnn button {
+    width: 50vw;
+}
+#dyanamicsection-4{
+    flex-direction: column;
+    gap: 20px;
+}
+.containvalue p{
+    width: 250px;
+}
+
+.video, .videoh iframe{
+            width: 100%;
+        }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+           <a href="#heroosec "><img src="/images/logohomestay.svg" alt="Logo"/></a> 
+        </div>
+    
+        <div class="nav-div">
+            <nav>
+                <ul>
+                    <li>DESTINATION</li>
+                    <li>INSPIRE ME</li>
+                    <li>SIGN UP</li>
+                    <li>LOG IN</li>
+                    <li>ENGLISH</li>
+                    <li>HELP</li>
+                </ul>
+                <button>LIST A ROOM</button>
+            </nav>
+        </div>
+            <div class="hamburger" onclick="toggleMobileNav()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+      
+    </header>
+
+    
+  
+    
+    <div class="mobile-nav" id="mobileNav">
+        <nav>
+            <ul>
+                <li>DESTINATION</li>
+                <li>INSPIRE ME</li>
+                <li>SIGN UP</li>
+                <li>LOG IN</li>
+                <li>ENGLISH</li>
+                <li>HELP</li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="heroosec" class="hero">
+        <div class="innerhero">
+            <div class="heading">
+                <h1>Find Your Home away from Home</h1>
+            </div>
+            <form>
+                <div class="form-group input-container">
+                    <input id="inputsmob" type="text" placeholder="Where do you want to go?" readonly />
+            
+                    <span class="dropdown-icon" onclick="toggleDropdown()">▼</span>
+            
+                    <div class="dropdown" id="cityDropdown">
+                        <option value="jaipur" onclick="selectCity('Jaipur')">Jaipur</option>
+                        <option value="moradabad" onclick="selectCity('Moradabad')">Moradabad</option>
+                        <option value="kashmir" onclick="selectCity('Kashmir')">Kashmir</option>
+                        <option value="delhi" onclick="selectCity('Delhi')">Delhi</option>
+                    </div>
+                </div>
+
+               <div class="checkin"> <input type="date" placeholder="Check in"/>
+                <input  type="date" placeholder="Check Out"/></div>
+                <input  id="inputsmob" type="number" placeholder="1"/>
+                <button id="myButton" class="btn">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <section class="stickynav">
+        <a href="#dyanamicsection-3">LIST A ROOM</a>
+        <a href="#dyanamicsection-1">TRAVEL</a>
+        <a href="#dyanamicsection-5">INSPIRE ME</a>
+        <a href="#homestayContainer">OUR PICKS</a>
+        <a href="#heroosec" class="hidden"><P>Find a homestay</P></a>  
+    </section>
+
+    <main>
+        <div id="dyanamicsection-1"></div>
+        <div id="dyanamicsection-2"></div>
+        <div id="dyanamicsection-3"></div>
+        <div id="dyanamicsection-4"></div>
+        <div id="dyanamicsection-5"></div>
+        <div id="homestayContainer"></div>
+
+    </main>
+
+    <footer>
+        <div>
+            <div>
+                <div>
+                    <h2>COMPANY</h2>
+                    <ul>
+                        <li>About Us</li>
+                        <li>Press</li>
+                        <li>Become an Affilate</li>
+                        <li>Work with us</li>
+                        <li>Contact Us</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>EXPLORE</h2>
+                    <ul>
+                        <li>Review</li>
+                        <li>Blog</li>
+                        <li>Find Guests</li>
+                        <li>Inspire me</li>
+                        <li>Invite Friends</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>CUSTOMER SERVICE</h2>
+                    <ul>
+                        <li>Need Help</li>
+                    </ul>
+                </div>
+                <div><img src="https://www.facebook.com/Homestaycom"></div>
+            </div>
+        </div>
+    </footer>
+<script src="dataa.js"></script>
+<script src="script.js"></script>
+<script src="file2.js"></script>
+</body>
+</html>
+
+
