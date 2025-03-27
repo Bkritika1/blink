@@ -1,21 +1,4 @@
 
-    document.getElementById("myButton").addEventListener("click", function(event) {
-        event.preventDefault();
-        addheadersection();
-    });
-
-
-
-
-    function toggleDropdown() {
-        const dropdown = document.getElementById("cityDropdown");
-        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-    }
-
-    function selectCity(city) {
-        document.getElementById('inputsmob').value = city;
-        document.getElementById("cityDropdown").style.display = "none"; 
-    }
     function toggleMobileNav() {
       const mobileNav = document.getElementById('mobileNav');
       mobileNav.style.display = mobileNav.style.display === 'block' ? 'none' : 'block';
@@ -28,7 +11,7 @@
         return sections.map(section => {
             return `
                 <div class="section1">
-                    <h3>${section.title}</h3>
+                    <h2>${section.title}</h2>
                     <p class="paragraph">${section.description}</p>
                     <div class="videoh">
                         <div class="video">
@@ -121,7 +104,7 @@ function renderInspirationSection() {
 
     var truevalueSection = document.getElementById('dyanamicsection-5');
     truevalueSection.innerHTML = `
-        <h2>${inspireMeData.sectionTitle}</h2>
+        <h1>${inspireMeData.sectionTitle}</h1>
         <p>${inspireMeData.sectionDescription}</p>
         <div class="cart-items-container">
             ${renderInspirationSection()}
@@ -156,4 +139,25 @@ function renderHomestay() {
 }
 
 document.getElementById('homestayContainer').innerHTML = renderHomestay();
+
+function optionsRender(){
+    let tpl = ``;
+    for (let key in data.cities) {
+        let city = data.cities[key];
+        tpl += `<option value="${key}" ${key === "1" ? "selected" : ""}>${city.name}</option>`;
+    }
+    document.querySelector("#placeToGO").innerHTML = tpl;
+}
+optionsRender();
+
+document.querySelector("#myButton").addEventListener("click", function(event) {
+    event.preventDefault();     
+    console.log("Button clicked...");
+    var selectedCity = document.querySelector("#placeToGO").value; 
+    addheadersection();
+    modifyHeroComponent(); 
+    pageMain(selectedCity); 
+});
+
+
 
